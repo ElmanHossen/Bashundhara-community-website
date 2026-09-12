@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     searchBtn.addEventListener('click', runSearch);
 
-    // Allow pressing Enter in the search box too
     queryInput.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
             e.preventDefault();
