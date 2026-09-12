@@ -1,18 +1,4 @@
--- ============================================================
--- Migration: Add "notices" table  (CommunityUser - Feature 7: Browse Notices)
--- Matches UML: Notice class (noticeId, createdBy, title, content,
---              priority, location, createdAt, expiryDate)
---
--- NOTE: Creating/publishing notices is an Admin capability
--- (Admin.publishNotice()) and is intentionally NOT built here -
--- that is out of scope for the CommunityUser module. This
--- migration seeds a few sample notices so there is something
--- for CommunityUser.browseNotices() to actually display.
---
--- Run this ONCE via phpMyAdmin -> SQL tab (paste and Go),
--- or Import -> choose this file. It will NOT affect your
--- existing users/categories/posts/likes/comments/reports data.
--- ============================================================
+
 
 USE webtech_community;
 
@@ -29,8 +15,6 @@ CREATE TABLE IF NOT EXISTS notices (
     FOREIGN KEY (created_by) REFERENCES users(user_id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
--- Sample seed data (created_by left NULL - no Admin module exists yet
--- to actually publish these; this is just demo content to browse)
 INSERT INTO notices (title, content, priority, location, expiry_date) VALUES
     ('Road Closure Notice',
      'MG Road will be closed from 17 May to 19 May for utility works. Please use alternate routes.',
