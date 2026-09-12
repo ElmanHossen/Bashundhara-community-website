@@ -1,19 +1,4 @@
--- ============================================================
--- Migration: Add "businesses" table  (CommunityUser - Search Businesses)
--- Matches UML: Business class (businessId, userId, name, logo, category,
---              address, openingHours, status, verified)
---
--- NOTE: Creating/managing a business profile is a BusinessPerson
--- capability (manageBusinessProfile(), submitForApproval()) and
--- approving it is an Admin capability (approveBusiness()). Both are
--- intentionally NOT built here - out of scope for CommunityUser.
--- This migration seeds a few already-approved sample businesses so
--- CommunityUser can search a real business directory.
---
--- Run this ONCE via phpMyAdmin -> SQL tab (paste and Go),
--- or Import -> choose this file. It will NOT affect your
--- existing data.
--- ============================================================
+
 
 USE webtech_community;
 
@@ -31,8 +16,6 @@ CREATE TABLE IF NOT EXISTS businesses (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
--- Sample seed data - all pre-approved so they're visible in search
--- (user_id left NULL - no BusinessPerson module exists yet to own these)
 INSERT INTO businesses (name, category, address, opening_hours, status, verified) VALUES
     ('Greenleaf Cafe', 'Cafe', '12 Oak Avenue, Green Park', 'Mon - Sun: 7:00 AM - 5:00 PM', 'approved', 1),
     ('Caring Hands Pharmacy', 'Pharmacy', '8 Sunrise Parade, Sunrise Park', 'Mon - Sat: 8:00 AM - 8:00 PM', 'approved', 1),
