@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!container) return;
 
     container.addEventListener('click', function (e) {
-        // ---------- Toggle a report form open/closed ----------
         const toggleBtn = e.target.closest('.toggle-report-btn');
         if (toggleBtn) {
             const targetType = toggleBtn.dataset.targetType;
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // ---------- Submit a report ----------
         const submitBtn = e.target.closest('.submit-report-btn');
         if (submitBtn) {
             const targetType = submitBtn.dataset.targetType;
