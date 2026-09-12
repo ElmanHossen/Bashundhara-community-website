@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('editPostForm');
-    if (!form) return; // page is in "not found" state, no form to attach to
+    if (!form) return; 
 
     const alertBox  = document.getElementById('postAlert');
     const submitBtn = document.getElementById('submitBtn');
 
     form.addEventListener('submit', function (e) {
-        e.preventDefault(); // no full-page reload
+        e.preventDefault(); d
 
         submitBtn.disabled = true;
         submitBtn.textContent = 'Saving...';
