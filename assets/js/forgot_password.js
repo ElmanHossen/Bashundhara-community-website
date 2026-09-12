@@ -26,9 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     let html = '<p class="alert alert-success">' + data.message + '</p>';
 
                     if (data.reset_link) {
-                        // No email server is configured in this XAMPP setup,
-                        // so the reset link is shown directly here instead
-                        // of being emailed (this stands in for "check your inbox").
+                       
                         html += '<div class="alert alert-success" style="word-break:break-all;">' +
                                     '<strong>Demo mode - reset link:</strong><br>' +
                                     '<a href="' + data.reset_link + '">' + data.reset_link + '</a>' +
