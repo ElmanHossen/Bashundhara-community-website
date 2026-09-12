@@ -6,13 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const noPostsMsg    = document.getElementById('noPostsMsg');
 
     form.addEventListener('submit', function (e) {
-        e.preventDefault(); // stop the normal full-page form submit
+        e.preventDefault(); 
 
         submitBtn.disabled = true;
         submitBtn.textContent = 'Publishing...';
         alertBox.innerHTML = '';
 
-        // FormData automatically includes the uploaded file too
         const formData = new FormData(form);
 
         fetch('/WebTech/community/ajax/create_post.php', {
@@ -20,19 +19,17 @@ document.addEventListener('DOMContentLoaded', function () {
             body: formData
         })
             .then(function (res) {
-                return res.json(); // parse the JSON the PHP endpoint sent back
+                return res.json(); 
             })
             .then(function (data) {
                 if (data.success) {
                     alertBox.innerHTML =
                         '<p class="alert alert-success">' + data.message + '</p>';
 
-                    // remove the "you haven't posted yet" placeholder if present
                     if (noPostsMsg) {
                         noPostsMsg.remove();
                     }
 
-                    // add the new post to the top of the list, no reload needed
                     recentList.insertAdjacentHTML('afterbegin', data.post.html);
 
                     form.reset();
