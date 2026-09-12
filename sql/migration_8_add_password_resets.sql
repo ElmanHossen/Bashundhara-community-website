@@ -1,11 +1,4 @@
--- ============================================================
--- Migration: Add "password_resets" table  (CommunityUser - Password Reset)
--- Matches UML: User.resetPassword()
---
--- Run this ONCE via phpMyAdmin -> SQL tab (paste and Go),
--- or Import -> choose this file. It will NOT affect your
--- existing data.
--- ============================================================
+
 
 USE webtech_community;
 

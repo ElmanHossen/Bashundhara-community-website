@@ -1,6 +1,5 @@
 <?php
-// This file NEVER outputs HTML - it only ever returns JSON.
-// It is called by assets/js/reset_password.js using fetch().
+
 
 require_once __DIR__ . '/../../config/db.php';
 require_once __DIR__ . '/../../config/session.php';
@@ -38,8 +37,7 @@ if (!empty($errors)) {
     exit;
 }
 
-// ---------- Re-validate the token server-side (never trust the ----------
-// ---------- fact that the page rendered a form as proof it's valid) ----------
+
 $tokenHash = hash('sha256', $token);
 
 $stmt = $pdo->prepare(
@@ -55,14 +53,12 @@ if (!$reset) {
     exit;
 }
 
-// ---------- Update the password (hashed) and mark the token used ----------
 $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
 
 $updateUser = $pdo->prepare("UPDATE users SET password = ? WHERE user_id = ?");
 $updateUser->execute([$newHash, $reset['user_id']]);
 
-// mark this token as used so it can never be reused, even if the
-// link is reopened or shared
+
 $markUsed = $pdo->prepare("UPDATE password_resets SET used = 1 WHERE reset_id = ?");
 $markUsed->execute([$reset['reset_id']]);
 

@@ -2,9 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const recentList = document.getElementById('recentPostsList');
     if (!recentList) return;
 
-    // Event delegation - this also works for posts added to the page
-    // dynamically after Create Post, since we're not attaching to each
-    // button individually.
+  
     recentList.addEventListener('click', function (e) {
         const btn = e.target.closest('.delete-post-btn');
         if (!btn) return;
@@ -32,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (data.success) {
                     card.remove();
 
-                    // if that was the last post, bring back the placeholder message
                     if (recentList.children.length === 0) {
                         recentList.innerHTML =
                             '<p class="muted" id="noPostsMsg">You haven\'t posted anything yet — try the form above.</p>';

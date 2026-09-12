@@ -1,18 +1,4 @@
--- ============================================================
--- Migration: Add "events" table  (CommunityUser - Feature 8: Browse Events)
--- Matches UML: Event class (eventId, createdBy, title, description,
---              date, time, location)
---
--- NOTE: Creating/publishing events is an Admin capability
--- (Admin.manageEvent(), Event.createEvent()/publishEvent()) and is
--- intentionally NOT built here - out of scope for CommunityUser.
--- This migration seeds sample events so CommunityUser.browseEvents()
--- has real data to display.
---
--- Run this ONCE via phpMyAdmin -> SQL tab (paste and Go),
--- or Import -> choose this file. It will NOT affect your
--- existing data.
--- ============================================================
+
 
 USE webtech_community;
 
@@ -29,7 +15,6 @@ CREATE TABLE IF NOT EXISTS events (
     FOREIGN KEY (created_by) REFERENCES users(user_id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
--- Sample seed data (created_by left NULL - no Admin module exists yet)
 INSERT INTO events (title, description, event_date, event_time, location) VALUES
     ('Community Tree Plantation Drive',
      'Join us this Sunday for a community tree plantation drive. Bring your friends and let''s grow together!',

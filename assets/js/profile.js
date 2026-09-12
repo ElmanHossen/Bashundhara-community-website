@@ -25,8 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (data.success) {
                     alertBox.innerHTML = '<p class="alert alert-success">' + data.message + '</p>';
 
-                    // update the "Hi, name" text in the header immediately,
-                    // without needing a full page reload
+                
                     const welcomeEl = document.querySelector('.welcome');
                     if (welcomeEl) {
                         welcomeEl.textContent = 'Hi, ' + data.name;

@@ -1,11 +1,4 @@
--- ============================================================
--- Migration: Add "comments" table  (CommunityUser - Feature 5: Comment on Post)
--- Matches UML: Comment class (commentId, postId, userId, content, createdAt)
---
--- Run this ONCE via phpMyAdmin -> SQL tab (paste and Go),
--- or Import -> choose this file. It will NOT affect your
--- existing users/categories/posts/likes data.
--- ============================================================
+
 
 USE webtech_community;
 
