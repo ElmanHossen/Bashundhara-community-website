@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const container = document.getElementById('recentPostsList');
     if (!container) return;
 
-    // Event delegation - works for posts added dynamically too
     container.addEventListener('click', function (e) {
         const btn = e.target.closest('.like-btn');
         if (!btn) return;
