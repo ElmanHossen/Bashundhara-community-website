@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../config/session.php';
-// No login required - reached via the token link, not a login session
 
 $token = $_GET['token'] ?? '';
 $validToken = false;
