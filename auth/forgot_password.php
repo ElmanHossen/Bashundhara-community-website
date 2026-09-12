@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../config/session.php';
-// No login required - this page must be reachable by logged-out visitors
 
 require_once __DIR__ . '/../includes/header.php';
 ?>
