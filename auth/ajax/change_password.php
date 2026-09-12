@@ -1,6 +1,5 @@
 <?php
-// This file NEVER outputs HTML - it only ever returns JSON.
-// It is called by assets/js/change_password.js using fetch().
+
 
 require_once __DIR__ . '/../../config/db.php';
 require_once __DIR__ . '/../../config/session.php';
@@ -9,7 +8,6 @@ header('Content-Type: application/json');
 
 $response = ['success' => false, 'errors' => [], 'message' => ''];
 
-// ---------- Must be logged in AND be a CommunityUser ----------
 if (!isLoggedIn()) {
     http_response_code(401);
     $response['message'] = 'You must be logged in to change your password.';
@@ -54,9 +52,7 @@ if (!empty($errors)) {
     exit;
 }
 
-// ---------- Fetch the CURRENT user's own password hash ----------
-// (always scoped to currentUserId() - never accepts a user_id from
-// the form, so nobody can change someone else's password)
+
 $stmt = $pdo->prepare("SELECT password FROM users WHERE user_id = ?");
 $stmt->execute([currentUserId()]);
 $user = $stmt->fetch();
@@ -68,7 +64,6 @@ if (!$user || !password_verify($currentPassword, $user['password'])) {
     exit;
 }
 
-// ---------- Hash and save the new password ----------
 $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
 
 $updateStmt = $pdo->prepare("UPDATE users SET password = ? WHERE user_id = ?");
