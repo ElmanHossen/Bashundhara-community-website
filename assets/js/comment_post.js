@@ -2,8 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const container = document.getElementById('recentPostsList');
     if (!container) return;
 
-    // Comment content comes from users, so always escape it before
-    // inserting into the page - never trust it as raw HTML.
+
     function escapeHtml(str) {
         const div = document.createElement('div');
         div.textContent = str;
@@ -32,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
                '</div>';
     }
 
-    // ---------- Toggle comments open/closed, load them the first time ----------
     container.addEventListener('click', function (e) {
         const toggleBtn = e.target.closest('.toggle-comments-btn');
         if (!toggleBtn) return;
@@ -71,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // ---------- Handle "add comment" form submissions ----------
     container.addEventListener('submit', function (e) {
         const form = e.target.closest('.add-comment-form');
         if (!form) return;
@@ -94,7 +91,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     input.value = '';
                     listDiv.style.display = 'block';
 
-                    // remove "no comments yet" / loading placeholder if present
                     const placeholder = listDiv.querySelector('.muted');
                     if (placeholder) {
                         listDiv.innerHTML = '';
