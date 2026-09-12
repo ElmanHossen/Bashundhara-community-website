@@ -1,17 +1,10 @@
--- ============================================================
--- Bashundhara Community (NeighbourNet) - Database Schema
--- Covers: users, categories, posts  (CommunityUser - Feature 1: Create Post)
--- Import this once via phpMyAdmin -> Import, or run in phpMyAdmin's SQL tab.
--- ============================================================
+
 
 CREATE DATABASE IF NOT EXISTS webtech_community
   CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 USE webtech_community;
 
--- ------------------------------------------------------------
--- USERS  (matches UML: User class)
--- ------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS users (
     user_id    INT AUTO_INCREMENT PRIMARY KEY,
     name       VARCHAR(100) NOT NULL,
@@ -22,9 +15,7 @@ CREATE TABLE IF NOT EXISTS users (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
--- ------------------------------------------------------------
--- CATEGORIES  (matches UML: Category class + PostCategoryType enum)
--- ------------------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
     name        VARCHAR(50) NOT NULL,
@@ -40,9 +31,7 @@ INSERT INTO categories (name, type) VALUES
     ('Local News',        'PostCategoryType'),
     ('Recommendations',   'PostCategoryType');
 
--- ------------------------------------------------------------
--- POSTS  (matches UML: Post class)
--- ------------------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS posts (
     post_id     INT AUTO_INCREMENT PRIMARY KEY,
     user_id     INT NOT NULL,
@@ -55,9 +44,6 @@ CREATE TABLE IF NOT EXISTS posts (
     FOREIGN KEY (category_id) REFERENCES categories(category_id)
 ) ENGINE=InnoDB;
 
--- ------------------------------------------------------------
--- LIKES  (matches UML: Like class)
--- ------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS likes (
     like_id    INT AUTO_INCREMENT PRIMARY KEY,
     post_id    INT NOT NULL,
@@ -68,9 +54,7 @@ CREATE TABLE IF NOT EXISTS likes (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- ------------------------------------------------------------
--- COMMENTS  (matches UML: Comment class)
--- ------------------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS comments (
     comment_id INT AUTO_INCREMENT PRIMARY KEY,
     post_id    INT NOT NULL,
@@ -81,9 +65,7 @@ CREATE TABLE IF NOT EXISTS comments (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- ------------------------------------------------------------
--- REPORTS  (matches UML: Report class, {xor} post/comment target)
--- ------------------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS reports (
     report_id  INT AUTO_INCREMENT PRIMARY KEY,
     user_id    INT NOT NULL,
@@ -103,10 +85,6 @@ CREATE TABLE IF NOT EXISTS reports (
     )
 ) ENGINE=InnoDB;
 
--- ------------------------------------------------------------
--- NOTICES  (matches UML: Notice class - CommunityUser browses only,
---           Admin.publishNotice() is out of scope here)
--- ------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS notices (
     notice_id   INT AUTO_INCREMENT PRIMARY KEY,
     created_by  INT NULL,
@@ -119,9 +97,6 @@ CREATE TABLE IF NOT EXISTS notices (
     FOREIGN KEY (created_by) REFERENCES users(user_id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
--- ------------------------------------------------------------
--- EVENTS  (matches UML: Event class - CommunityUser browses only)
--- ------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS events (
     event_id    INT AUTO_INCREMENT PRIMARY KEY,
     created_by  INT NULL,
@@ -134,10 +109,6 @@ CREATE TABLE IF NOT EXISTS events (
     FOREIGN KEY (created_by) REFERENCES users(user_id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
--- ------------------------------------------------------------
--- BUSINESSES  (matches UML: Business class - CommunityUser searches
---              only; management/approval are BusinessPerson/Admin)
--- ------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS businesses (
     business_id   INT AUTO_INCREMENT PRIMARY KEY,
     user_id       INT NULL,
@@ -151,9 +122,6 @@ CREATE TABLE IF NOT EXISTS businesses (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
--- ------------------------------------------------------------
--- PASSWORD RESETS  (matches UML: User.resetPassword())
--- ------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS password_resets (
     reset_id   INT AUTO_INCREMENT PRIMARY KEY,
     user_id    INT NOT NULL,
