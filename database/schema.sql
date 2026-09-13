@@ -1,12 +1,8 @@
--- ==========================================================
--- Community Business Portal - Database Schema
--- Run this ONCE in phpMyAdmin before starting the project.
--- ==========================================================
+
 
 CREATE DATABASE IF NOT EXISTS community_portal;
 USE community_portal;
 
--- ================= MEMBER 1 : USERS =======================
 CREATE TABLE IF NOT EXISTS users (
     userId VARCHAR(50) PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -19,7 +15,6 @@ CREATE TABLE IF NOT EXISTS users (
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- ================= MEMBER 2 : COMMUNITY ===================
 CREATE TABLE IF NOT EXISTS post_categories (
     categoryId INT AUTO_INCREMENT PRIMARY KEY,
     categoryName VARCHAR(50) NOT NULL
@@ -67,7 +62,6 @@ CREATE TABLE IF NOT EXISTS reports (
     FOREIGN KEY (postId) REFERENCES posts(postId)
 );
 
--- ================= MEMBER 3 : BUSINESS ====================
 CREATE TABLE IF NOT EXISTS businesses (
     businessId INT AUTO_INCREMENT PRIMARY KEY,
     ownerId VARCHAR(50) NOT NULL,
@@ -129,7 +123,6 @@ CREATE TABLE IF NOT EXISTS order_items (
     FOREIGN KEY (productId) REFERENCES products(productId)
 );
 
--- ================= MEMBER 4 : ADMIN =======================
 CREATE TABLE IF NOT EXISTS notices (
     noticeId INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(150) NOT NULL,
@@ -149,7 +142,6 @@ CREATE TABLE IF NOT EXISTS homepage_content (
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- ================= SAMPLE DATA ============================
 INSERT INTO users (userId, name, email, phone, address, pass, role) VALUES
 ('admin1', 'System Admin', 'admin@portal.com', '01700000000', 'Dhaka', 'admin123', 'admin'),
 ('galib', 'Galib Hasan', 'galib@portal.com', '01711111111', 'Dhaka', '1234', 'user'),
