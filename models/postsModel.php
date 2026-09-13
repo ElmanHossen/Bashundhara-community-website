@@ -1,7 +1,5 @@
 <?php
-// ============================================================
-// MEMBER 2 (amit) - Community & Social Module
-// ============================================================
+
 require_once __DIR__."/dbConnect.php";
 
 function getPostCategories()
@@ -185,8 +183,7 @@ function deletePost($postId, $userId)
     }
 }
 
-// ---------------- COMMENTS ----------------
-
+ 
 function addComment($postId, $userId, $comment)
 {
     $conn=dbConnection();
@@ -253,7 +250,6 @@ function deleteComment($commentId, $userId)
     }
 }
 
-// ---------------- LIKES ----------------
 
 function hasLiked($postId, $userId)
 {
@@ -316,7 +312,6 @@ function getLikeCount($postId)
     }
 }
 
-// ---------------- REPORTS ----------------
 
 function addReport($reporterId, $postId, $reason)
 {
