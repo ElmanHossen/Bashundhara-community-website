@@ -1,5 +1,4 @@
 <?php
-// MEMBER 2 (amit) - comment controller (AJAX, returns JSON)
 session_start();
 require_once "../../models/postsModel.php";
 
@@ -9,7 +8,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 {
     $action=$_POST["action"];
 
-    // ---------- LIST COMMENTS ----------
     if($action=="list")
     {
         $postId=$_POST["postId"];
@@ -26,7 +24,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
     $userId=$_SESSION["userId"];
 
-    // ---------- ADD COMMENT ----------
     if($action=="add")
     {
         $postId=$_POST["postId"];
@@ -50,7 +47,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         exit();
     }
 
-    // ---------- DELETE COMMENT ----------
     if($action=="delete")
     {
         $commentId=$_POST["commentId"];
