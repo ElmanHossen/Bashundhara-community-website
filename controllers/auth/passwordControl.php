@@ -1,5 +1,5 @@
 <?php
-// MEMBER 1 (galib) - password change controller (AJAX, returns JSON)
+
 session_start();
 require_once "../../models/usersModel.php";
 
@@ -64,5 +64,5 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     header('Content-Type: application/json');
     echo json_encode($response);
 }
-
+//n
 ?>

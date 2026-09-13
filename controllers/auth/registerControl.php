@@ -1,5 +1,5 @@
 <?php
-// MEMBER 1 (galib) - registration controller (AJAX, returns JSON)
+
 require_once "../../models/usersModel.php";
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
