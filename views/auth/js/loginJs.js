@@ -1,4 +1,4 @@
-// MEMBER 1 (galib) - login AJAX
+
 const loginForm = document.getElementById("loginForm");
 loginForm.addEventListener("submit", callLoginAjax);
 

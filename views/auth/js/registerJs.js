@@ -1,4 +1,4 @@
-// MEMBER 1 (galib) - registration AJAX
+
 const registerForm = document.getElementById("registerForm");
 registerForm.addEventListener("submit", callRegisterAjax);
 

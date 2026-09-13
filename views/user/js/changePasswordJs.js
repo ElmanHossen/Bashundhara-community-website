@@ -1,4 +1,4 @@
-// MEMBER 1 (galib) - change password AJAX
+
 const passwordForm = document.getElementById("passwordForm");
 passwordForm.addEventListener("submit", callPasswordAjax);
 
