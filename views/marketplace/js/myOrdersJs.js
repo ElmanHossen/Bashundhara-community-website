@@ -1,4 +1,4 @@
-// MEMBER 3 (fahim) - customer order history AJAX
+
 window.addEventListener("load", loadMyOrders);
 
 function loadMyOrders() {

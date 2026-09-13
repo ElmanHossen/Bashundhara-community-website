@@ -1,4 +1,4 @@
-// MEMBER 3 (fahim) - product search / filter / add to cart AJAX
+
 window.addEventListener("load", loadProducts);
 
 function loadProducts() {

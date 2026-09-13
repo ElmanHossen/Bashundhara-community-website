@@ -1,4 +1,4 @@
-// MEMBER 3 (fahim) - business registration AJAX
+
 const businessForm = document.getElementById("businessForm");
 businessForm.addEventListener("submit", callBusinessAjax);
 

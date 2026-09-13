@@ -1,4 +1,4 @@
-// MEMBER 3 (fahim) - business order management AJAX
+
 window.addEventListener("load", loadBusinessOrders);
 
 function loadBusinessOrders() {

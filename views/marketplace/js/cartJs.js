@@ -1,4 +1,4 @@
-// MEMBER 3 (fahim) - cart and checkout AJAX
+
 window.addEventListener("load", loadCart);
 
 const checkoutForm = document.getElementById("checkoutForm");
