@@ -1,7 +1,6 @@
 <?php
 
 require_once "../../models/usersModel.php";
-
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
     $userId=trim($_POST["userId"]);
