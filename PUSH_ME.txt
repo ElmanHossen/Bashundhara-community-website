@@ -1,0 +1,28 @@
+========================================
+STEP 0 - SHARED BASE  ->  branch: main
+Only ONE person does this, BEFORE everyone else.
+========================================
+
+1. Copy these files/folders into the repo root, keeping the structure:
+     index.php
+     README.md
+     .gitignore
+     database/schema.sql
+     models/dbConnect.php
+     views/css/style.css
+     views/partials/nav.php
+
+2. Push to main:
+
+   git checkout main
+   git add index.php README.md .gitignore database/ models/dbConnect.php views/css/style.css views/partials/
+   git commit -m "base: mvc structure, db connect, schema, shared nav and css"
+   git push origin main
+
+   git checkout dev
+   git merge main
+   git push origin dev
+
+3. Tell the group "base pushed". Nobody pushes before this.
+
+NOBODY edits these 7 files on a personal branch afterwards.
