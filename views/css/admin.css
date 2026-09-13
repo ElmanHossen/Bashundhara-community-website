@@ -1,0 +1,125 @@
+/* MEMBER 4 (elman) - admin & website management styles */
+
+.hero {
+    background-color: #23395d;
+    color: #ffffff;
+    border: none;
+    padding: 34px 24px;
+}
+
+.hero h1 {
+    font-size: 27px;
+    margin-top: 0;
+}
+
+.hero-link {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #23395d;
+    padding: 9px 18px;
+    text-decoration: none;
+    margin-top: 12px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.stats-grid .stat-box {
+    display: inline-block;
+    width: 155px;
+    border: 1px solid #d8dee9;
+    padding: 12px;
+    margin: 0 10px 10px 0;
+    text-align: center;
+}
+
+.stat-box h2 {
+    font-size: 25px;
+    margin: 4px 0;
+    color: #23395d;
+}
+
+.notice {
+    border-bottom: 1px solid #eceff4;
+    padding: 14px 0;
+}
+
+.notice h2 {
+    margin: 6px 0;
+}
+
+.notice .meta,
+.card .meta {
+    color: #6b7785;
+    font-size: 13px;
+    margin: 4px 0;
+}
+
+.comment-box {
+    display: none;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #eceff4;
+}
+
+.filter-bar {
+    margin-top: 12px;
+}
+
+.filter-bar input[type="text"] {
+    max-width: 300px;
+}
+
+.filter-bar select {
+    max-width: 220px;
+    margin-top: 8px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #e8ecf3;
+    color: #23395d;
+    padding: 3px 10px;
+    font-size: 12px;
+}
+
+.link-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.link-list li {
+    padding: 7px 0;
+    border-bottom: 1px solid #eceff4;
+}
+
+.link-list a {
+    color: #23395d;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.status {
+    padding: 2px 9px;
+    font-size: 12px;
+    background-color: #e8ecf3;
+}
+
+.status-approved, .status-active, .status-resolved {
+    background-color: #d8efdf;
+    color: #1d6b3f;
+}
+
+.status-pending, .status-hidden {
+    background-color: #fbeed5;
+    color: #8a6414;
+}
+
+.status-rejected, .status-blocked, .status-deleted, .status-dismissed {
+    background-color: #f6dada;
+    color: #a12d2d;
+}
+
+.comment {
+    border-bottom: 1px solid #eceff4;
+    padding: 10px 0;
+}
