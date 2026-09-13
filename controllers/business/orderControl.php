@@ -1,5 +1,5 @@
 <?php
-// MEMBER 3 (fahim) - order controller (AJAX, returns JSON)
+
 session_start();
 require_once "../../models/businessModel.php";
 
@@ -16,7 +16,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     $userId=$_SESSION["userId"];
     $action=$_POST["action"];
 
-    // ---------- PLACE ORDER ----------
     if($action=="place")
     {
         $shippingAddress=trim($_POST["shippingAddress"]);
@@ -40,7 +39,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         exit();
     }
 
-    // ---------- MY ORDERS ----------
     if($action=="myOrders")
     {
         $orders=getOrdersByUser($userId);
@@ -54,7 +52,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         exit();
     }
 
-    // ---------- BUSINESS ORDERS ----------
     if($action=="businessOrders")
     {
         $business=getBusinessByOwner($userId);
@@ -76,7 +73,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         exit();
     }
 
-    // ---------- UPDATE STATUS ----------
     if($action=="updateStatus")
     {
         $business=getBusinessByOwner($userId);

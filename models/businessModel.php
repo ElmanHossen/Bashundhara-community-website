@@ -1,10 +1,6 @@
 <?php
-// ============================================================
-// MEMBER 3 (fahim) - Business & Marketplace Module
-// ============================================================
-require_once __DIR__."/dbConnect.php";
 
-// ---------------- BUSINESS ----------------
+require_once __DIR__."/dbConnect.php";
 
 function registerBusiness($ownerId, $businessName, $description, $address, $phone)
 {
@@ -67,8 +63,6 @@ function updateBusiness($businessId, $ownerId, $businessName, $description, $add
         }
     }
 }
-
-// ---------------- PRODUCTS ----------------
 
 function getProductCategories()
 {
@@ -241,8 +235,6 @@ function deleteProduct($productId, $businessId)
     }
 }
 
-// ---------------- CART ----------------
-
 function addToCart($userId, $productId, $quantity)
 {
     $conn=dbConnection();
@@ -335,8 +327,6 @@ function clearCart($userId)
         return mysqli_stmt_execute($stmt);
     }
 }
-
-// ---------------- ORDERS ----------------
 
 function placeOrder($userId, $shippingAddress)
 {

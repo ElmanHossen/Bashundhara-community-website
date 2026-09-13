@@ -1,4 +1,4 @@
-// MEMBER 3 (fahim) - product management AJAX
+
 window.addEventListener("load", loadMyProducts);
 
 const productForm = document.getElementById("productForm");

@@ -1,5 +1,5 @@
 <?php
-// MEMBER 3 (fahim) - product controller (AJAX, returns JSON)
+
 session_start();
 require_once "../../models/businessModel.php";
 
@@ -9,7 +9,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 {
     $action=$_POST["action"];
 
-    // ---------- PUBLIC: SHOP LIST + SEARCH + FILTER ----------
     if($action=="shop")
     {
         $search=isset($_POST["search"]) ? trim($_POST["search"]) : "";
@@ -42,7 +41,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
     $businessId=$business["businessId"];
 
-    // ---------- MY PRODUCTS ----------
     if($action=="list")
     {
         $products=getProductsByBusiness($businessId);
@@ -50,7 +48,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         exit();
     }
 
-    // ---------- ADD ----------
     if($action=="add")
     {
         $productName=trim($_POST["productName"]);
@@ -106,7 +103,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         exit();
     }
 
-    // ---------- UPDATE ----------
     if($action=="update")
     {
         $productId=$_POST["productId"];
@@ -133,7 +129,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         exit();
     }
 
-    // ---------- DELETE ----------
     if($action=="delete")
     {
         $productId=$_POST["productId"];

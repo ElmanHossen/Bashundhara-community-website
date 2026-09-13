@@ -1,5 +1,5 @@
 <?php
-// MEMBER 3 (fahim) - shopping cart controller (AJAX, returns JSON)
+
 session_start();
 require_once "../../models/businessModel.php";
 
