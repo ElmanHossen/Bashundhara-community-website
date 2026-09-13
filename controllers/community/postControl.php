@@ -1,5 +1,4 @@
 <?php
-// MEMBER 2 (amit) - post controller (AJAX, returns JSON)
 session_start();
 require_once "../../models/postsModel.php";
 
@@ -9,7 +8,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 {
     $action=$_POST["action"];
 
-    // ---------- LIST POSTS (feed + search + filter) ----------
     if($action=="list")
     {
         $search=isset($_POST["search"]) ? trim($_POST["search"]) : "";
@@ -20,7 +18,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         exit();
     }
 
-    // ---------- MY POSTS ----------
     if($action=="myPosts")
     {
         if(!isset($_SESSION["userId"]))
@@ -34,7 +31,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         exit();
     }
 
-    // everything below needs login
     if(!isset($_SESSION["userId"]))
     {
         echo json_encode(["success"=>false, "message"=>"Please login first"]);
@@ -43,7 +39,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
     $userId=$_SESSION["userId"];
 
-    // ---------- ADD POST ----------
     if($action=="add")
     {
         $title=trim($_POST["title"]);
@@ -96,7 +91,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         exit();
     }
 
-    // ---------- UPDATE POST ----------
     if($action=="update")
     {
         $postId=$_POST["postId"];
@@ -121,7 +115,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         exit();
     }
 
-    // ---------- DELETE POST ----------
     if($action=="delete")
     {
         $postId=$_POST["postId"];

@@ -1,4 +1,3 @@
-// MEMBER 2 (amit) - post details, comments and replies AJAX
 const postId = document.getElementById("postId").value;
 const currentUser = document.getElementById("currentUser").value;
 

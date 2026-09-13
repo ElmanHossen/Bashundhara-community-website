@@ -1,4 +1,3 @@
-// MEMBER 2 (amit) - community feed AJAX
 window.addEventListener("load", loadPosts);
 
 function loadPosts() {

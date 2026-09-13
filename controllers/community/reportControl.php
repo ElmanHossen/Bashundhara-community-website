@@ -1,5 +1,4 @@
 <?php
-// MEMBER 2 (amit) - report controller (AJAX, returns JSON)
 session_start();
 require_once "../../models/postsModel.php";
 

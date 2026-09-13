@@ -1,4 +1,3 @@
-// MEMBER 2 (amit) - my posts: edit and delete via AJAX
 window.addEventListener("load", loadMyPosts);
 
 const editForm = document.getElementById("editForm");

@@ -1,4 +1,3 @@
-// MEMBER 2 (amit) - create post AJAX
 const postForm = document.getElementById("postForm");
 postForm.addEventListener("submit", callPostAjax);
 
