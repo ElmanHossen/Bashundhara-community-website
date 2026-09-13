@@ -1,4 +1,4 @@
-// MEMBER 1 (galib) - profile update AJAX
+
 const profileForm = document.getElementById("profileForm");
 profileForm.addEventListener("submit", callProfileAjax);
 

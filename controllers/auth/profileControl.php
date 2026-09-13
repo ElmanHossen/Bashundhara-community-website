@@ -1,5 +1,5 @@
 <?php
-// MEMBER 1 (galib) - profile update controller (AJAX, returns JSON)
+
 session_start();
 require_once "../../models/usersModel.php";
 

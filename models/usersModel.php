@@ -1,7 +1,5 @@
 <?php
-// ============================================================
-// MEMBER 1 (galib) - Authentication & User Module
-// ============================================================
+
 require_once __DIR__."/dbConnect.php";
 
 function login($userId, $pass)
