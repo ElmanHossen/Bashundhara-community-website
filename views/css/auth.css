@@ -1,0 +1,25 @@
+/* MEMBER 1 (galib) - auth & user module styles */
+
+.auth-box {
+    max-width: 440px;
+}
+
+.link-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.link-list li {
+    padding: 7px 0;
+    border-bottom: 1px solid #eceff4;
+}
+
+.link-list a {
+    color: #23395d;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.link-list a:hover {
+    text-decoration: underline;
+}
