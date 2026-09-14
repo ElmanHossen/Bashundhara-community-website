@@ -3,8 +3,7 @@
 session_start();
 require_once "../../models/usersModel.php";
 
-if(!isset($_SESSION["userId"]))
-{
+if(!isset($_SESSION["userId"])){   
     header('Content-Type: application/json');
     echo json_encode(["success"=>false, "message"=>"Please login first"]);
     exit();
