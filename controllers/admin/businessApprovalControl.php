@@ -5,8 +5,7 @@ require_once "../../models/adminModel.php";
 
 header('Content-Type: application/json');
 
-if(!isset($_SESSION["userId"]) || $_SESSION["role"]!="admin")
-{
+if(!isset($_SESSION["userId"]) || $_SESSION["role"]!="admin"){
     echo json_encode(["success"=>false, "message"=>"Admin access only"]);
     exit();
 }
